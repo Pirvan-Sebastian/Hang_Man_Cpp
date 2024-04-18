@@ -27,8 +27,8 @@ int main()
     //cuvant_corect="abnkab";//test
     int lungime_cuvant = cuvant_corect.length();
     //cout << cuvant_corect << endl; // test
-
-    char litera;
+    //declar ca vector si iau doar [0] dar citesc tot vectoru, asa ia doar prima;
+    string litera;
     int litere_ghicite[cuvant_corect.length()], nr_greseli = 0, gasit = 0;
     vector<char> litere_gresite;
     int game_over = 0;
@@ -67,7 +67,7 @@ int main()
     while (!game_over)
     {   
         cout << "\nIntrodu litera: ";
-        cin >> litera;
+        cin>>litera;
         system("cls");
         cout << "\n";
         gasit = 0;
@@ -75,7 +75,7 @@ int main()
         // verific daca litera apare in cuvant_corect
         for (int i = 0; i < cuvant_corect.length(); i++)
         {
-            if (litera == cuvant_corect[i])
+            if (litera[0] == cuvant_corect[i])
             {
                 litere_ghicite[i] = 1;
                 gasit = 1;
@@ -85,7 +85,7 @@ int main()
         if (gasit == 0)
         {
             nr_greseli++;
-            litere_gresite.push_back(litera);
+            litere_gresite.push_back(litera[0]);
         }
 
         switch (nr_greseli)
